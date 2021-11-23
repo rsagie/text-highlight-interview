@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Text Highlight</title>
+  <style>
+    .demo-container {
+      border: 1px dashed #ccc;
+      margin: 25px;
+      padding: 25px;
+    }
+  </style>
+  <link rel="stylesheet" href="./text-highlight.css">
+</head>
+<body>
+
+  <script type="module">
+
+    const tests = [
+      {
+        input: "Today, I am sharing Microsoft’s 2021 Diversity and Inclusion report, our third annual report and our eighth year of releasing our global workforce demographic data publicly. This past year was a challenging time for so many people, communities and organizations. Ongoing acts of hate and violence in the U.S. and around the world have continued to move racial injustice to the forefront of social consciousness, while the global pandemic has exacerbated inequities and upended our lives. In the face of these realities, the sense of urgency to solve some of the biggest systemic problems of equality and inclusion is palpable. This report is an opportunity for us to quantify the impact of our work. Measurement and data are important to us, not only because they allow us to recognizing progress, but also because it enables us to identify avenues and opportunities to do better. And while numbers provide an important and necessary snapshot, we also prioritize the perspectives and experiences of the more than 180,000 employees who bring their unique talents to our family of Microsoft companies. In addition to the data and progress you see in the document, we are also sharing five videos that explore the strategy and the intent behind the work we do, and the people who bring it to life.",
+        highlight: [
+          {
+            textRange: [20, 67],
+            textStyle: 'background: #afa',
+            labels: [
+              {
+                labelStyle: 'background: #efe',
+                labelText: 'Main article title',
+              }
+            ]
+          },
+          {
+            textRange: [32, 36],
+            textStyle: 'background: #eee',
+            labels: [
+              {
+                labelStyle: 'background: #ccc',
+                labelText: 'YEAR',
+              }
+            ]
+          },
+          {
+            textRange: [101, 112],
+            textStyle: 'background: #faa',
+            labels: [
+              {
+                labelStyle: 'background: #fdd',
+                labelText: 'DATE',
+              },
+              {
+                labelClass: 'background: #fee',
+                labelText: 'Long text here',
+              }
+            ]
+          },
+          {
+            textRange: [700, 741],
+            textStyle: 'background: #aaf',
+            labels: [
+              {
+                labelStyle: 'background: #ddf',
+                labelText: 'DATE',
+              }
+            ]
+          }
+        ],
+      },
+    ];
+    
+    for (let test of tests) {
+         const container = document.createElement('div');
+         container.textContent = test.input;
+         container.className = 'demo-container';
+         document.body.appendChild(container);
+
+    //   const highlighter = new TextHighlight({ container });
+    //   highlighter.highlight(test.highlight);
+    }
+  </script>
+
+</body>
+</html>
